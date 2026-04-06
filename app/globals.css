@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 15, 23, 42;
+  --background-rgb: 248, 250, 252;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Table styles */
+.data-table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.data-table th {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #f8fafc;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.data-table td {
+  border-bottom: 1px solid #f1f5f9;
+  transition: background 0.1s;
+}
+
+.data-table tbody tr:hover td {
+  background: #f8fafc;
+}
+
+/* Drop zone animation */
+@keyframes borderPulse {
+  0%, 100% { border-color: #818cf8; }
+  50% { border-color: #6366f1; }
+}
+
+.drop-zone-active {
+  animation: borderPulse 1s ease-in-out infinite;
+  background: #eef2ff;
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #06b6d4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Card hover */
+.card-hover {
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.card-hover:hover {
+  box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+  transform: translateY(-1px);
+}
+
+/* Shimmer loading */
+@keyframes shimmer {
+  0% { background-position: -200px 0; }
+  100% { background-position: calc(200px + 100%) 0; }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, #f0f4f8 0px, #e2e8f0 40px, #f0f4f8 80px);
+  background-size: 400px 100%;
+  animation: shimmer 1.4s ease-in-out infinite;
+}
